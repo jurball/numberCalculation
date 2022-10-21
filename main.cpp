@@ -5,50 +5,38 @@ using namespace std;
 
 int main()
 {
-    bool flags = true;
+    const short sizes = 4;
 
-    while(flags)
+    while(true)
     {
-        int b = 0, c = 0;
+        char *mass = new char[sizes];
+        short x = 0, a = 0, y = -1, b = 0, c = 0;
 
-        int y = 0;
-        int a = 0;
-        int x = 0;
-        char mass[16] = {'e'};
-
-        cout << "-----------------INPUT-----------------" << endl;
-        cout << "Input number(2): ";
-
+        cout << "-----------------INPUT-----------------\n" << "Input number: ";
         cin >> mass;
-        if(mass[0] == 'e')
+
+        if(mass[0] == '.ex')
             return 0;
 
-        cout << "Index: ";
-        cin >> y;
+        for(int i = 0; i < sizes; i++)
+        {
+            if(mass[i] == '0' || mass[i] == '1')
+                y++;
+        }
 
         x = y + 1;
 
         do
         {
-            if(mass[a] == '1')
+            if(mass[b] == '1')
             {
-                c = 1 * pow(2, y);
-                b = c + b;
-                mass[a] = '0';
+                a = 1 * pow(2, y);
+                c = a + c;
             }
-            if(mass[a] == '0')
-            {
-                c = 0 * pow(2, y);
-                b = c + b;
-                mass[a] = '0';
-            }
-            a++;
             y--;
-        } while(a < x);
+            b++;
+        } while(b < x);
 
-        cout << "-----------------OUTPUT----------------" << endl;
-        cout << "Result: " << b << endl << endl;
+        cout << "-----------------OUTPUT----------------\n" << "Result: " << c << "\n\n";
     }
-
-    return 0;
 }
