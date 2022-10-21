@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    const short sizes = 4;
+    const short sizes = 32;
 
     while(true)
     {
